@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import {
   Home,
@@ -123,7 +123,7 @@ const Sidebar = () => {
                               "flex items-center gap-3 px-3 py-2 rounded-md text-[13px] transition-all",
                               isActive
                                 ? "bg-indigo-50 text-indigo-600 font-medium"
-                                : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                                : "text-gray-600 font-bold hover:bg-gray-100 hover:text-gray-950"
                             )}
                           >
                             {Icon ? (
@@ -145,14 +145,15 @@ const Sidebar = () => {
                     })}
                   </ul>
                 </div>
-                <hr className="border-gray-200 mb-2" />
+                <hr className="border-gray-300 mb-2" />
               </>
             );
           })}
+        <ScrollBar orientation="vertical" />
         </ScrollArea>
 
         {/* Footer */}
-        <div className="px-4 py-3 text-xs text-gray-600 border-t bg-gray-300 h-20 flex items-center justify-center">
+        <div className="px-4 py-3 text-xs text-gray-600 bg-gray-300 h-16 flex items-center justify-center">
           <span>© 2025 Secure ID</span>
         </div>
       </aside>
