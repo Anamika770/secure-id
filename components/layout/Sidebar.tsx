@@ -24,10 +24,11 @@ import {
   Landmark,
   icons,
 } from "lucide-react";
+import { useSidebar } from "@/app/context/SidebarContext";
 
 const Sidebar = () => {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, toggleSidebar } = useSidebar();
 
   const menu = [
     {
@@ -81,9 +82,9 @@ const Sidebar = () => {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-16 left-0 h-[calc(100vh-4rem)] bg-white flex flex-col shadow-md transition-transform duration-300 ease-in-out z-50",
-          "w-60 scroll-",
-          isOpen ? "translate-x-0" : "",
+          "fixed top-16 left-0 h-[calc(100vh-4rem)] bg-gray-50 flex flex-col shadow-md transition-transform duration-300 ease-in-out z-50",
+          "w-60 shadow-lg",
+          isOpen ? "translate-x-0" : "-translate-x-full",
           "lg:translate-x-0 lg:static lg:shadow-none"
         )}
       >
@@ -118,6 +119,7 @@ const Sidebar = () => {
                       return (
                         <li key={item.href}>
                           <Link
+                          onClick={()=>toggleSidebar()}
                             href={item.href}
                             className={cn(
                               "flex items-center gap-3 px-3 py-2 rounded-md text-[13px] transition-all",
