@@ -2,15 +2,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "../ui/button";
 import { PlusCircle, RefreshCcw } from "lucide-react";
 
-const WalletCard = () => {
-  const merchant = {
-    name: "Papertrail Services Private Limited",
-    phone: "9205041396",
-    merchantId: "874107",
-    accountId: "75567",
-    balance: 4662.42,
-    lastUpdated: "Today, 08:06 PM",
+const WalletCard = ({
+  merchant,
+}: {
+  merchant: {
+    name: string;
+    phone: string;
+    merchantId: string;
+    accountId: string;
+    balance: number;
+    lastUpdated: string;
   };
+}) => {
   return (
     <Card className="shadow-md pt-0 overflow-hidden bg-gray-50">
       <CardHeader className="flex flex-row items-center justify-between pb-2 bg-gray-300 h-14 py-1 ">

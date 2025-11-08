@@ -19,8 +19,8 @@ export default function HomePage() {
         <h1 className="text-2xl font-semibold text-gray-800">Home</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <WalletCard />
-        <MerchantDetails />
+        <WalletCard merchant={merchant} />
+        <MerchantDetails merchant={merchant} />
       </div>
       <ProductsSection />
     </div>

@@ -3,7 +3,7 @@
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { useSidebar } from "@/app/context/SidebarContext";
+import { useSidebar } from "@/context/SidebarContext";
 
 const Navbar = () => {
   const { isOpen, toggleSidebar } = useSidebar();

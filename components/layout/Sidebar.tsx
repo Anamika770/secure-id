@@ -11,8 +11,6 @@ import {
   CreditCard,
   Shield,
   UserCheck,
-  Menu,
-  X,
   ChevronDown,
   ChevronUp,
   IdCard,
@@ -24,7 +22,7 @@ import {
   Landmark,
   icons,
 } from "lucide-react";
-import { useSidebar } from "@/app/context/SidebarContext";
+import { useSidebar } from "@/context/SidebarContext";
 
 const Sidebar = () => {
   const pathname = usePathname();
