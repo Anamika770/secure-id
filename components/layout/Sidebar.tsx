@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -29,7 +29,29 @@ import { useSidebar } from "@/context/SidebarContext";
 const Sidebar = () => {
   const pathname = usePathname();
   const { isOpen, toggleSidebar } = useSidebar();
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
+  // Close sidebar on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        toggleSidebar();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, toggleSidebar]);
  
 
 const menu = [
@@ -84,6 +106,7 @@ const menu = [
     <>
       {/* Sidebar */}
       <aside
+      ref={sidebarRef}
         className={cn(
           "fixed top-16 left-0 h-[calc(100vh-4rem)] bg-gray-50 flex flex-col shadow-md transition-transform duration-300 ease-in-out z-50",
           "w-60 shadow-lg",

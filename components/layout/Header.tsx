@@ -91,7 +91,7 @@ const Navbar = () => {
                 align="end"
                 className="w-40 bg-white text-black shadow-md"
               >
-                <DropdownMenuItem>Developers</DropdownMenuItem>
+                <DropdownMenuItem className="">Developers</DropdownMenuItem>
                 <DropdownMenuItem>Switch to Test</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
