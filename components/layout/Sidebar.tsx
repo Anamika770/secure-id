@@ -7,63 +7,68 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import {
   Home,
-  FileText,
   CreditCard,
-  Shield,
   UserCheck,
   ChevronDown,
   ChevronUp,
   IdCard,
-  Building2,
-  User,
-  Wrench,
-  ShoppingBag,
-  Headphones,
   Landmark,
-  icons,
+  BarChart2,
+  LayoutTemplate,
+  Video,
+  UserPlus,
+  ScanText,
+  RefreshCcw,
+  ShieldCheck,
+  FolderLock,
+  Layers,
 } from "lucide-react";
+
 import { useSidebar } from "@/context/SidebarContext";
 
 const Sidebar = () => {
   const pathname = usePathname();
   const { isOpen, toggleSidebar } = useSidebar();
 
-  const menu = [
-    {
-      section: "Main",
-      items: [
-        { name: "Home", href: "/", icon: Home },
-        { name: "Analytics", href: "/analytics", icon: FileText },
-      ],
-    },
-    {
-      section: "KYC Studio",
-      items: [
-        { name: "All Verifications", href: "/kyc/all", icon: IdCard },
-        { name: "KYC Templates", href: "/kyc/templates", icon: Building2 },
-        { name: "Video KYC", href: "/kyc/video", icon: User },
-        { name: "1-Click Onboarding", href: "/kyc/onboarding", icon: Wrench },
-        { name: "Smart OCR", href: "/kyc/ocr", icon: ShoppingBag },
-      ],
-    },
-    {
-      section: "Bank Account",
-      items: [
-        { name: "Bank Account", href: "/bank/account", icon: CreditCard },
-        { name: "Reverse Penny Drop", href: "/bank/reverse", icon: Headphones },
-        { name: "IFSC", href: "/bank/ifsc", icon: Landmark },
-      ],
-    },
-    {
-      section: "Aadhaar / PAN",
-      items: [
-        { name: "Aadhaar Masking", href: "/aadhaar/masking", icon: Shield },
-        { name: "DigiLocker – Aadhaar", href: "/aadhaar/digilocker", icon: null },
-        { name: "PAN", href: "/pan", icon: UserCheck },
-        { name: "PAN 360", href: "/pan/360", icon: null },
-      ],
-    },
-  ];
+ 
+
+const menu = [
+  {
+    section: "Main",
+    items: [
+      { name: "Home", href: "/", icon: Home },
+      { name: "Analytics", href: "/analytics", icon: BarChart2 },
+    ],
+  },
+  {
+    section: "KYC Studio",
+    items: [
+      { name: "All Verifications", href: "/kyc/all", icon: IdCard },
+      { name: "KYC Templates", href: "/kyc/templates", icon: LayoutTemplate },
+      { name: "Video KYC", href: "/kyc/video", icon: Video },
+      { name: "1-Click Onboarding", href: "/kyc/onboarding", icon: UserPlus },
+      { name: "Smart OCR", href: "/kyc/ocr", icon: ScanText },
+    ],
+  },
+  {
+    section: "Bank Account",
+    items: [
+      { name: "Bank Account", href: "/bank/account", icon: CreditCard },
+      { name: "Reverse Penny Drop", href: "/bank/reverse", icon: RefreshCcw},
+      { name: "IFSC", href: "/bank/ifsc", icon: Landmark },
+    ],
+  },
+  {
+    section: "Aadhaar / PAN",
+    items: [
+      { name: "Aadhaar Masking", href: "/aadhaar/masking", icon: ShieldCheck },
+      { name: "DigiLocker – Aadhaar", href: "/aadhaar/digilocker", icon: FolderLock },
+      { name: "PAN", href: "/pan", icon: UserCheck },
+      { name: "PAN 360", href: "/pan/360", icon: Layers },
+    ],
+  },
+];
+
 
   const [openSections, setOpenSections] = useState<string[]>(["Main"]); // home open by default
 
@@ -131,7 +136,7 @@ const Sidebar = () => {
                               size={16}
                               className={cn(
                                 "w-4 h-4 transition-colors duration-200",
-                                isActive ? "text-indigo-600" : "text-gray-400 group-hover:text-gray-700"
+                                isActive ? "text-indigo-600" : "text-gray-500 group-hover:text-gray-700"
                               )}
                             />
                           ) : (
@@ -149,7 +154,7 @@ const Sidebar = () => {
               </>
             );
           })}
-        <ScrollBar orientation="vertical" />
+        <ScrollBar orientation="vertical"  />
         </ScrollArea>
 
         {/* Footer */}

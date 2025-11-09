@@ -20,7 +20,9 @@ const WalletCard = ({
         <CardTitle className="text-sm font-medium text-gray-600">
           Secure ID Wallet
         </CardTitle>
-        <div className="flex space-x-2">
+      </CardHeader>
+      <CardContent>
+        <div className="flex space-x-2 mb-3">
           <Button
             size="sm"
             variant="outline"
@@ -37,14 +39,15 @@ const WalletCard = ({
             <span>Recharge</span>
           </Button>
         </div>
-      </CardHeader>
-      <CardContent>
-        <p className="text-3xl font-semibold">
-          ₹{merchant.balance.toLocaleString()}
-        </p>
-        <p className="text-xs text-gray-500 mt-1">
-          Last updated {merchant.lastUpdated}
-        </p>
+        <div>
+          <p className="text-3xl font-semibold">
+            ₹{merchant.balance.toLocaleString()}
+          </p>
+          <p className="text-xs text-gray-500 mt-1">
+            Last updated {merchant.lastUpdated}
+          </p>
+        </div>
+        
       </CardContent>
     </Card>
   );
